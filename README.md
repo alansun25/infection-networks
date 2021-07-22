@@ -12,7 +12,7 @@ I am currently focusing on allowing users to generate mock networks. Further dow
 I am currently performing network analysis research at Williams College for the summer of 2021. I've studied and implemented the aforementioned random and small-world network-generating algorithms using R, and decided that it would be interesting to create a web application that can visualize these networks dynamically. Adding the disease component into it seemed fun and relevant (COVID-19 type beat). This will also be a good opportunity to learn about preferential attachment, which is a graphing algorithm I won't be studying for my research, and some new JavaScript graphing libraries.
 
 ## Tech Stack
-- React.js (My front-end library of choice)
-- TailwindCSS (Currently using this for my internship and enjoying it a lot)
-- Cytoscape.js (I liked this the most over D3.js and vis.js after testing them all out)
+- React.js (Front-end library)
+- TailwindCSS (Styling)
+- Cytoscape.js (Graph visualization)
 
