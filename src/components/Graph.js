@@ -7,7 +7,7 @@ export default function Graph() {
     cytoscape({
       container: graphContainer.current,
       elements: [
-        { data: { id: 'a' } },
+        { data: { id: 'a', status: 'infected' } },
         { data: { id: 'b' } },
         { data: { id: 'c' } },
         { data: { id: 'd' } },
@@ -22,7 +22,7 @@ export default function Graph() {
         {
           selector: 'node',
           style: {
-            'background-color': '#b396f1',
+            'background-color': node => node.data('status') === 'infected' ? 'red' : '#b396f1',
             'label': 'data(id)'
           }
         },
@@ -42,7 +42,9 @@ export default function Graph() {
   });
 
   return (
-    <div>
+    // Switch styles to Tailwind after testing
+    <div style={{position: 'relative'}}>
+      <div style={{background: 'red', position: 'fixed', zIndex: '1', height: '100px'}}>Placeholder form</div>
       <div ref={graphContainer} style={{height: '1000px'}}></div>
     </div>
   );
