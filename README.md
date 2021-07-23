@@ -13,6 +13,6 @@ I am currently performing network analysis research at Williams College for the 
 
 ## Tech Stack
 - React.js (Front-end library)
-- TailwindCSS (Styling)
+- TailwindCSS, Chakra UI (Components and Styling)
 - Cytoscape.js (Graph visualization)
 
