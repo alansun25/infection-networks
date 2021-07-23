@@ -54,6 +54,9 @@ export default function ErdosRenyi(n, p, ref) {
     const neighbors = cy.$(`#${i}`).neighborhood();
     for (let j = i; j < n; j++) {
       const rand = Math.random();
+      
+       // Prevent self-loops and multiple-edges.
+       // Only create the edge if the randomly generated float is less than p.
       if (i !== j && rand < p && !neighbors.contains(cy.$(`#${j}`))) {
         cy.add({
           group: 'edges', 
@@ -64,7 +67,7 @@ export default function ErdosRenyi(n, p, ref) {
   }
 
   const layout = cy.layout({
-    name: 'circle'
+    name: 'random'
   });
 
   layout.run();
