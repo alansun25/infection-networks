@@ -9,9 +9,9 @@ export default function Graph() {
   const graphContainer = useRef(null);
 
   useEffect(() => {
-    //makeRing(8, 2, graphContainer);
+    //console.log(makeRing(10, 2, graphContainer).edges().length);
     //ErdosRenyi(5, 1, "circle", graphContainer)
-    WattsStrogatz(10, 2, 0.1, "circle", graphContainer);
+    WattsStrogatz(50, 5, 0.05, "random", graphContainer);
   }, []);
 
   return (

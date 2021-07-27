@@ -56,8 +56,8 @@ export default function ErdosRenyi(n: number, p: number, l: string, ref: React.M
     for (let j = i; j <= n; j++) {
       const rand = Math.random();
       
-       // Prevent self-loops and multiple-edges.
-       // Only create the edge if the randomly generated float is less than p.
+      // Prevent self-loops and multiple-edges.
+      // Only create the edge if the randomly generated float is less than p.
       if (i !== j && rand < p && !neighbors.contains(cy.$(`#${j}`))) {
         cy.add({
           group: 'edges', 
@@ -67,7 +67,7 @@ export default function ErdosRenyi(n: number, p: number, l: string, ref: React.M
     }
   }
 
-cy.layout({ name: `${l}` }).run();
+  cy.layout({ name: `${l}` }).run();
 
   return cy;
 }
