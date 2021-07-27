@@ -1,14 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
-import cytoscape from 'cytoscape';
 import { Box } from '@chakra-ui/react';
 
 import ErdosRenyi from '../functions/ErdosRenyi';
+import makeRing from '../functions/helper/makeRing';
+import WattsStrogatz from '../functions/WattsStrogatz';
 
 export default function Graph() {
   const graphContainer = useRef();
 
   useEffect(() => {
-    ErdosRenyi(30, 0.05, graphContainer);
+    //makeRing(8, 2, graphContainer);
+    //ErdosRenyi(5, 1, "circle", graphContainer)
+    WattsStrogatz(10, 2, 0.1, "circle", graphContainer);
   }, []);
 
   return (

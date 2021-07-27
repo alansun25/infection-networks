@@ -4,11 +4,12 @@ import cytoscape from "cytoscape";
  * Generates a simple, undirected random graph given n, the number of nodes, and p, 
  * the probability that there is an edge between any two nodes.
  * 
- * The parameter ref refers to the container in which the network visualization will
- * be rendered.
+ * The parameter l sets the layout of the outputted network, and ref refers to the 
+ * container in which the network visualization will be rendered.
  */
 
-export default function ErdosRenyi(n, p, ref) {
+export default function ErdosRenyi(n, p, l, ref) {
+  // This data validation will be changed to be handled before the params are passed
   if (n < 0) {
     alert('A network cannot have a negative number of nodes.');
     return;
@@ -42,7 +43,7 @@ export default function ErdosRenyi(n, p, ref) {
   });
 
   // Create nodes
-  for (let i = 0; i < n; i++) {
+  for (let i = 1; i <= n; i++) {
     cy.add({
       group: 'nodes',
       data: { id: `${i}` }
@@ -50,9 +51,9 @@ export default function ErdosRenyi(n, p, ref) {
   }
 
   // Create edges
-  for (let i = 0; i < n; i++) {
+  for (let i = 1; i <= n; i++) {
     const neighbors = cy.$(`#${i}`).neighborhood();
-    for (let j = i; j < n; j++) {
+    for (let j = i; j <= n; j++) {
       const rand = Math.random();
       
        // Prevent self-loops and multiple-edges.
@@ -66,11 +67,7 @@ export default function ErdosRenyi(n, p, ref) {
     }
   }
 
-  const layout = cy.layout({
-    name: 'random'
-  });
-
-  layout.run();
+cy.layout({ name: `${l}` }).run();
 
   return cy;
 }
