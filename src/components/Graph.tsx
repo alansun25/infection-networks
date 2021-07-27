@@ -6,7 +6,7 @@ import makeRing from '../functions/helper/makeRing';
 import WattsStrogatz from '../functions/WattsStrogatz';
 
 export default function Graph() {
-  const graphContainer = useRef();
+  const graphContainer = useRef(null);
 
   useEffect(() => {
     //makeRing(8, 2, graphContainer);

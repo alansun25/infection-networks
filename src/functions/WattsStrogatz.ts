@@ -1,6 +1,6 @@
 import cytoscape from "cytoscape";
 
-export default function WattsStrogatz(n, k, p, l, ref) {
+export default function WattsStrogatz(n: number, k: number, p: number, l: string, ref: React.MutableRefObject<null>) {
   let cy = cytoscape({
     container: ref.current,
     elements: [],
@@ -33,6 +33,7 @@ export default function WattsStrogatz(n, k, p, l, ref) {
 
   // Create edges
   for (let i = 1; i <= n; i++) {
+    console.log(`i=${i}`)
     for (let j = i + 1; j <= i + k; j++) {
       j = (j - 1) % n + 1;
       const rand = Math.random();
@@ -43,27 +44,29 @@ export default function WattsStrogatz(n, k, p, l, ref) {
       if (rand < p || ni.neighborhood().contains(nj)) {
         let source = [ni, nj][Math.floor(Math.random() * 2)];
 
-        if (ni.degree() === n - 1) {
+        if (ni.degree(false) === n - 1) {
           source = ni;
-        } else if (nj.degree() === n - 1) {
+        } else if (nj.degree(false) === n - 1) {
           source = nj;
         }
 
-        let target = cy.nodes().$id(`${Math.ceil(Math.random() * n)}`);
+        let target = cy.nodes().$id(`${Math.floor(Math.random() * n) + 1}`);
 
-        if (ni.degree() === n - 1 && nj.degree() === n - 1) {
+        if (ni.degree(false) === n - 1 && nj.degree(false) === n - 1) {
           /* Do nothing */
         } else {
           const neighbors = source.neighborhood();
           if (neighbors.length > 0) {
             const nonNeighbors = cy.nodes().filter(node => !neighbors.nodes().contains(node));
-            target = nonNeighbors.nodes().$id(`${Math.ceil(Math.random() * nonNeighbors.length)}`);
-            while (target.same(source)) {
-              target = nonNeighbors.nodes().$id(`${Math.ceil(Math.random() * nonNeighbors.length)}`);
-            }
+            nonNeighbors.forEach(node => console.log(node.id()));
+            // target = nonNeighbors.nodes().$id(`${Math.floor(Math.random() * nonNeighbors.length) + 1}`);
+            // console.log(`target id: ${target.id()}`)
+            // while (target.same(source)) {
+            //   target = nonNeighbors.nodes().$id(`${Math.floor(Math.random() * nonNeighbors.length) + 1}`);
+            // }
           } else {
             const otherNodes = cy.nodes().filter(node => !node.same(ni) && !node.same(nj));
-            target = otherNodes.nodes().$id(`${Math.ceil(Math.random() * otherNodes.length)}`);
+            target = otherNodes.nodes().$id(`${Math.floor(Math.random() * otherNodes.length) + 1}`);
           }
         }
 

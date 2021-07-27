@@ -8,7 +8,7 @@ import cytoscape from "cytoscape";
  * container in which the network visualization will be rendered.
  */
 
-export default function ErdosRenyi(n, p, l, ref) {
+export default function ErdosRenyi(n: number, p: number, l: string, ref: React.MutableRefObject<null>) {
   // This data validation will be changed to be handled before the params are passed
   if (n < 0) {
     alert('A network cannot have a negative number of nodes.');

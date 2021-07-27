@@ -1,6 +1,6 @@
 import cytoscape from 'cytoscape';
 
-export default function makeRing(n, k, ref) {
+export default function makeRing(n: number, k: number, ref: React.MutableRefObject<null>) {
 
   // TODO: data validation (should be done before params passed in)
 
@@ -44,8 +44,6 @@ export default function makeRing(n, k, ref) {
       })
     });
   }
-
-  console.log(cy.nodes('[id: "1"]').id())
 
   cy.layout({ name: 'circle' }).run();
 
