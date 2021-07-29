@@ -2,22 +2,20 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Box } from '@chakra-ui/react';
 
 import ErdosRenyi from '../functions/ErdosRenyi';
-import makeRing from '../functions/helper/makeRing';
 import WattsStrogatz from '../functions/WattsStrogatz';
+import AlgoSelect from './AlgoSelect';
 
 export default function Graph() {
-  const graphContainer = useRef(null);
+  const graphContainer = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    //console.log(makeRing(10, 2, graphContainer).edges().length);
-    //ErdosRenyi(5, 1, "circle", graphContainer)
-    WattsStrogatz(50, 5, 0.05, "random", graphContainer);
+    WattsStrogatz(50, 5, 0.15, "breadthfirst", graphContainer);
   }, []);
 
   return (
-    <Box pos='relative'>
-      <Box pos='fixed' zIndex={1} bg='red' h='100px'>Placeholder</Box>
-      <Box ref={graphContainer} h='1000px'></Box>
+    <Box>
+      <AlgoSelect />
+      <Box ref={graphContainer} zIndex='0' h='900'></Box>
     </Box>
   );
 }

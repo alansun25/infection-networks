@@ -1,4 +1,6 @@
 import cytoscape from "cytoscape";
+import { RefObject } from "react";
+import { graphStyles } from "../styles/graphStyles";
 
 /*
  * Generates a simple, undirected random graph given n, the number of nodes, and p, 
@@ -8,7 +10,7 @@ import cytoscape from "cytoscape";
  * container in which the network visualization will be rendered.
  */
 
-export default function ErdosRenyi(n: number, p: number, l: string, ref: React.MutableRefObject<null>) {
+export default function ErdosRenyi(n: number, p: number, l: string, ref: RefObject<HTMLDivElement>) {
   // This data validation will be changed to be handled before the params are passed
   if (n < 0) {
     alert('A network cannot have a negative number of nodes.');
@@ -23,23 +25,7 @@ export default function ErdosRenyi(n: number, p: number, l: string, ref: React.M
   let cy = cytoscape({
     container: ref.current,
     elements: [],
-    style: [
-      {
-        selector: 'node',
-        style: {
-          'background-color': node => node.data('status') === 'infected' ? 'red' : '#b396f1',
-          'label': 'data(id)'
-        }
-      },
-      {
-        selector: 'edge',
-        style: {
-          'width': 3,
-          'line-color': '#ccc',
-          'curve-style': 'bezier'
-        }
-      }
-    ]
+    style: graphStyles
   });
 
   // Create nodes
@@ -68,6 +54,7 @@ export default function ErdosRenyi(n: number, p: number, l: string, ref: React.M
   }
 
   cy.layout({ name: `${l}` }).run();
+  cy.fit(undefined, 100);
 
   return cy;
 }

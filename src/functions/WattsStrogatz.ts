@@ -1,36 +1,27 @@
 import cytoscape from "cytoscape";
+import { RefObject } from "react";
+import { graphStyles } from "../styles/graphStyles";
 
-export default function WattsStrogatz(n: number, k: number, p: number, l: string, ref: React.MutableRefObject<null>) {
+export default function WattsStrogatz(n: number, k: number, p: number, l: string, ref: RefObject<HTMLDivElement>) {
   // TODO: data validation that should be done before params passed in (Look at R implementation for validation steps)
 
   let cy = cytoscape({
     container: ref.current,
     elements: [],
-    style: [
-      {
-        selector: 'node',
-        style: {
-          'background-color': node => node.data('status') === 'infected' ? 'red' : '#b396f1',
-          'height': 7,
-          'width': 7
-        }
-      },
-      {
-        selector: 'edge',
-        style: {
-          'width': 1,
-          'line-color': '#ccc',
-          'curve-style': 'bezier'
-        }
-      }
-    ]
+    style: graphStyles,
+    maxZoom: 1
   });
 
   // Create nodes
   for (let i = 1; i <= n; i++) {
+    let status = 'normal'
+    if (i % 2 === 0) {
+      status = 'infected';
+    }
+
     cy.add({
       group: 'nodes',
-      data: { id: `${i}` }
+      data: { id: `${i}`, status: status }
     });
   }
 
@@ -66,7 +57,7 @@ export default function WattsStrogatz(n: number, k: number, p: number, l: string
           const neighbors = source.neighborhood().nodes();
 
           // If the source has neighbors, choose a target to rewire to such that the target is not
-          // on of these neighbors.
+          // one of these neighbors.
           if (!neighbors.empty()) {
             const nonNeighbors = cy.nodes().difference(neighbors);
             target = nonNeighbors.nodes().toArray()[Math.floor(Math.random() * nonNeighbors.length)];
@@ -92,6 +83,7 @@ export default function WattsStrogatz(n: number, k: number, p: number, l: string
   }
 
   cy.layout({ name: `${l}` }).run();
+  cy.fit(undefined, 100);
 
   return cy;
 }
