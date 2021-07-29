@@ -15,5 +15,5 @@ I am currently performing network analysis research at Williams College for the 
 - TypeScript (Language)
 - Cytoscape.js (Graph drawing)
 - React.js (Front-end library)
-- TailwindCSS, Chakra UI (Components and Styling)
+- Chakra UI (Components and Styling)
 
