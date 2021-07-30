@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {
+  Heading,
   Box,
   FormControl,
   FormLabel,
@@ -14,10 +15,19 @@ import {
   HStack
 } from "@chakra-ui/react";
 import RadioCard from "./RadioCard.jsx";
+import RandomForm from "./algo-forms/RandomForm";
+import SmallWorldForm from "./algo-forms/SmallWorldForm";
 
-export default function AlgoSelect() {
+export default function Settings() {
   const algoOptions = ['Random', 'Small-world', 'Preferential Attachment'];
-  const [ algo, setAlgo ] = useState<string>('Random');
+  const [algo, setAlgo] = useState<string>('Random');
+
+  // Random graph algorithm settings
+  const [rs, setRs] = useState({
+    n: 0,
+    p: 0,
+    l: 'random'
+  })
 
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: 'framework',
@@ -31,17 +41,16 @@ export default function AlgoSelect() {
 
   return (
     <Box
-      pos='fixed' 
-      zIndex='1' 
-      h='auto' 
       p='4' 
       m='4' 
       border='1px' 
       borderColor='#241664' 
       borderRadius='md' 
-      shadow='lg'
+      shadow='xl'
+      bg='#f8f8ff'
     >
-      <FormLabel color='#241664'>Graph Generation Algorithm</FormLabel>
+      <Heading as='h1' size='md' color='#241664'>Graph Settings</Heading>
+      <FormLabel color='#241664' mt={3}>Generation Algorithm</FormLabel>
       <HStack {...group}>
         {algoOptions.map(value => {
           const radio = getRadioProps({ value })
@@ -52,6 +61,9 @@ export default function AlgoSelect() {
           )
         })}
       </HStack>
+      <Box mb={-3}>
+        {algo === 'Random' ? <RandomForm/> : (algo === 'Small-world' ? <SmallWorldForm/> : 'lol')};
+      </Box>
     </Box> 
   );
 }

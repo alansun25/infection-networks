@@ -83,7 +83,7 @@ export default function WattsStrogatz(n: number, k: number, p: number, l: string
   }
 
   cy.layout({ name: `${l}` }).run();
-  cy.fit(undefined, 100);
+  cy.fit(undefined, 50);
 
   return cy;
 }

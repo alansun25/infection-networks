@@ -12,8 +12,8 @@ export const graphStyles = [
   {
     selector: 'edge',
     style: {
-      'width': 1,
-      'line-color': '#241664',
+      'width': 0.5,
+      'line-color': '#a5a5a5',
       'curve-style': 'bezier'
     }
   }
