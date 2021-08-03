@@ -52,7 +52,7 @@ export default function RandomForm() {
   return (
     <form action="">
       <FormControl id='nodes' isRequired mt={3}>
-        <FormLabel color='#241664'>Number of Nodes</FormLabel>
+        <FormLabel color='#2D3748'>Number of Nodes</FormLabel>
         <NumberInput 
           value={params.nodes} 
           onChange={handleNodeChange}
@@ -61,25 +61,25 @@ export default function RandomForm() {
           inputMode='numeric'
         >
           <NumberInputField
-            color='#241664' 
+            color='#2D3748' 
             border='1px' 
-            borderColor='#241664'
+            borderColor='#2D3748'
             _hover={{
-              borderColor: '#7b7a7a'
+              borderColor: '#8c7dd7'
             }}
             _focus={{
-              borderColor: '#7b7a7a'
+              borderColor: '#8c7dd7'
             }}
           />
           <NumberInputStepper>
-            <NumberIncrementStepper color='#241664' />
-            <NumberDecrementStepper color='#241664' />
+            <NumberIncrementStepper color='#2D3748' />
+            <NumberDecrementStepper color='#2D3748' />
           </NumberInputStepper>
         </NumberInput>
-        <FormHelperText color='#7b7a7a'>0 to 500</FormHelperText>
+        <FormHelperText color='#8c7dd7'>0 to 500</FormHelperText>
       </FormControl>
       <FormControl id='prob' isRequired mt={3}>
-        <FormLabel color='#241664'>Probability of an Edge Between Two Nodes</FormLabel>
+        <FormLabel color='#2D3748'>Probability of an Edge Between Two Nodes</FormLabel>
         <NumberInput
           value={params.prob}
           onChange={handleProbChange}
@@ -89,38 +89,38 @@ export default function RandomForm() {
           inputMode='decimal'
         >
           <NumberInputField
-            color='#241664' 
+            color='#2D3748' 
             border='1px' 
-            borderColor='#241664'
+            borderColor='#2D3748'
             _hover={{
-              borderColor: '#7b7a7a'
+              borderColor: '#8c7dd7'
             }}
             _focus={{
-              borderColor: '#7b7a7a'
+              borderColor: '#8c7dd7'
             }}
           />
           <NumberInputStepper>
-            <NumberIncrementStepper color='#241664' />
-            <NumberDecrementStepper color='#241664' />
+            <NumberIncrementStepper color='#2D3748' />
+            <NumberDecrementStepper color='#2D3748' />
           </NumberInputStepper>
         </NumberInput>
-        <FormHelperText color='#7b7a7a'>0 to 1</FormHelperText>
+        <FormHelperText color='#8c7dd7'>0 to 1</FormHelperText>
       </FormControl>
       <FormControl id='layout' isRequired mt={3}>
-        <FormLabel color='#241664'>Layout</FormLabel>
+        <FormLabel color='#2D3748'>Layout</FormLabel>
         <Select
           name='layout'
           value={params.layout}
           onChange={handleSelectChange}
-          color='#241664'
+          color='#2D3748'
           backgroundColor='#f8f8ff'
           border='1px' 
-          borderColor='#241664'
+          borderColor='#2D3748'
           _hover={{
-            borderColor: '#7b7a7a'
+            borderColor: '#8c7dd7'
           }}
           _focus={{
-            borderColor: '#7b7a7a'
+            borderColor: '#8c7dd7'
           }}
         >
           <option value="random" style={{backgroundColor: '#f8f8ff'}}>Random</option>

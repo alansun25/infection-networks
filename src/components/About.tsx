@@ -2,77 +2,100 @@ import React from "react";
 import { 
   Heading, 
   Box, 
-  Text, 
+  Button, 
   Accordion, 
   AccordionButton, 
   AccordionIcon, 
   AccordionItem, 
-  AccordionPanel } from "@chakra-ui/react";
+  AccordionPanel, 
+  useDisclosure,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay
+} from "@chakra-ui/react";
+import { InfoOutlineIcon } from '@chakra-ui/icons';
 
 export default function About() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
-    <Box
-      p='4' 
-      m='4' 
-      border='1px' 
-      borderColor='#241664' 
-      borderRadius='md' 
-      shadow='xl'
-      bg='#f8f8ff'
-    >
-      <Heading as='h1' size='md' color='#241664'>About</Heading>
-      <Accordion mt={1} allowToggle>
-        <AccordionItem color='#241664'>
-          <h2>
-            <AccordionButton _focus={{}}>
-              <Box flex="1" textAlign="left">
-                Random
-              </Box>
-              <AccordionIcon/>
-            </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat.
-          </AccordionPanel>
-        </AccordionItem>
+    <Box pt={2} pr={4}>
+      <InfoOutlineIcon onClick={onOpen} h={5} w={5} color='#2D3748' cursor='pointer'/>
 
-        <AccordionItem color='#241664'>
-          <h2>
-            <AccordionButton _focus={{}}>
-              <Box flex="1" textAlign="left">
-                Small-world
-              </Box>
-              <AccordionIcon/>
-            </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat.
-          </AccordionPanel>
-        </AccordionItem>
+      <Modal onClose={onClose} isOpen={isOpen} isCentered>
+        <ModalOverlay />
+        <ModalContent bg='#f8f8ff'>
+          <ModalHeader color='#2D3748'>About</ModalHeader>
+          <ModalCloseButton color='#2D3748'/>
+          <ModalBody>
+            <Accordion allowToggle>
+              <AccordionItem color='#2D3748'>
+                <h2>
+                  <AccordionButton _focus={{}}>
+                    <Box flex="1" textAlign="left">
+                      Random
+                    </Box>
+                    <AccordionIcon/>
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                  commodo consequat.
+                </AccordionPanel>
+              </AccordionItem>
 
-        <AccordionItem color='#241664'>
-          <h2>
-            <AccordionButton _focus={{}}>
-              <Box flex="1" textAlign="left">
-                Preferential Attachment
-              </Box>
-              <AccordionIcon/>
-            </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat.
-          </AccordionPanel>
-        </AccordionItem>
-      </Accordion>
-    </Box> 
+              <AccordionItem color='#2D3748'>
+                <h2>
+                  <AccordionButton _focus={{}}>
+                    <Box flex="1" textAlign="left">
+                      Small-world
+                    </Box>
+                    <AccordionIcon/>
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                  commodo consequat.
+                </AccordionPanel>
+              </AccordionItem>
+
+              <AccordionItem color='#2D3748'>
+                <h2>
+                  <AccordionButton _focus={{}}>
+                    <Box flex="1" textAlign="left">
+                      Preferential Attachment
+                    </Box>
+                    <AccordionIcon/>
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                  commodo consequat.
+                </AccordionPanel>
+              </AccordionItem>
+            </Accordion>
+          </ModalBody>
+          <ModalFooter>
+            <Button 
+              onClick={onClose} 
+              bg='#2D3748'
+              _hover={{ bg: '#1f2630' }}
+            >
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </Box>
   );
 }

@@ -12,16 +12,16 @@ export default function RadioCard(props) {
       <input {...input} />
       <Box
         {...checkbox}
-        color="#241664"
+        color="#2D3748"
         cursor="pointer"
         borderWidth={1}
         borderColor="#f0f0f0"
         borderRadius="md"
         boxShadow="md"
         _checked={{
-          bg: "#241664",
+          bg: "#8c7dd7",
           color: "#f8f8ff",
-          borderColor: "#241664",
+          borderColor: "#8c7dd7",
         }}
         px={5}
         py={3}

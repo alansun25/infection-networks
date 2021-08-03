@@ -9,7 +9,7 @@ export default function Graph() {
   const [algo, setAlgo] = useState<string>('Random');
 
   useEffect(() => {
-    WattsStrogatz(20, 3, 0.15, "concentric", graphContainer);
+    WattsStrogatz(20, 3, 0.15, "breadthfirst", graphContainer);
   }, []);
 
   return (

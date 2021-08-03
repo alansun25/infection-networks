@@ -8,12 +8,13 @@ function App() {
   return (
     <Flex flexDirection='row'>
       <Box h='auto' w='50%'>
-        <Settings />
-        {/* TBD: Move the about section to be a modal... need to put the infection settings here */}
-        <About />
+        <Settings />        
       </Box>
       <Box w='100%'>
         <Graph />
+      </Box>
+      <Box pos='fixed' right={0}>
+        <About />
       </Box>
     </Flex>
   );

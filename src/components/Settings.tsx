@@ -17,6 +17,7 @@ import {
 import RadioCard from "./RadioCard.jsx";
 import RandomForm from "./algo-forms/RandomForm";
 import SmallWorldForm from "./algo-forms/SmallWorldForm";
+import PreferentialForm from "./algo-forms/PreferentialForm";
 
 export default function Settings() {
   const algoOptions = ['Random', 'Small-world', 'Preferential Attachment'];
@@ -26,6 +27,14 @@ export default function Settings() {
   const [rs, setRs] = useState({
     n: 0,
     p: 0,
+    l: 'random'
+  })
+
+  // Small world graph algorithm settings
+  const [sw, setSw] = useState({
+    n: 0,
+    p: 0,
+    k: 0,
     l: 'random'
   })
 
@@ -41,16 +50,16 @@ export default function Settings() {
 
   return (
     <Box
-      p='4' 
-      m='4' 
+      p={4} 
+      m={4} 
       border='1px' 
-      borderColor='#241664' 
+      borderColor='#2D3748' 
       borderRadius='md' 
       shadow='xl'
       bg='#f8f8ff'
     >
-      <Heading as='h1' size='md' color='#241664'>Graph Settings</Heading>
-      <FormLabel color='#241664' mt={3}>Generation Algorithm</FormLabel>
+      <Heading as='h1' size='md' color='#2D3748'>Graph Settings</Heading>
+      <FormLabel color='#2D3748' mt={3}>Generation Algorithm</FormLabel>
       <HStack {...group}>
         {algoOptions.map(value => {
           const radio = getRadioProps({ value })
@@ -62,7 +71,7 @@ export default function Settings() {
         })}
       </HStack>
       <Box mb={-3}>
-        {algo === 'Random' ? <RandomForm/> : (algo === 'Small-world' ? <SmallWorldForm/> : 'lol')};
+        {algo === 'Random' ? <RandomForm/> : (algo === 'Small-world' ? <SmallWorldForm/> : <PreferentialForm/>)};
       </Box>
     </Box> 
   );
