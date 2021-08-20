@@ -26,14 +26,14 @@ export default function Settings() {
   // Random graph algorithm settings
   const [rs, setRs] = useState({
     n: 0,
-    p: 0,
+    p: '0',
     l: 'random'
   })
 
   // Small world graph algorithm settings
   const [sw, setSw] = useState({
     n: 0,
-    p: 0,
+    p: '0',
     k: 0,
     l: 'random'
   })

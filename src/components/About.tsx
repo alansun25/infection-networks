@@ -24,7 +24,17 @@ export default function About() {
 
   return (
     <Box pt={2} pr={4}>
-      <InfoOutlineIcon onClick={onOpen} h={5} w={5} color='#2D3748' cursor='pointer'/>
+      <InfoOutlineIcon 
+        onClick={onOpen} 
+        h={5} 
+        w={5} 
+        color='#2D3748'
+        _hover={{
+          color: 'gray.500'
+        }}
+        transition='0.1s'
+        cursor='pointer'
+      />
 
       <Modal onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
@@ -88,8 +98,9 @@ export default function About() {
           <ModalFooter>
             <Button 
               onClick={onClose} 
-              bg='#2D3748'
-              _hover={{ bg: '#1f2630' }}
+              bg='teal.500'
+              _hover={{ bg: 'teal.400' }}
+              _active={{ bg: 'teal.600' }}
             >
               Close
             </Button>

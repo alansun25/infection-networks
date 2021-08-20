@@ -65,10 +65,10 @@ export default function RandomForm() {
             border='1px' 
             borderColor='#2D3748'
             _hover={{
-              borderColor: '#8c7dd7'
+              borderColor: 'gray.400'
             }}
             _focus={{
-              borderColor: '#8c7dd7'
+              borderColor: 'gray.400'
             }}
           />
           <NumberInputStepper>
@@ -76,7 +76,7 @@ export default function RandomForm() {
             <NumberDecrementStepper color='#2D3748' />
           </NumberInputStepper>
         </NumberInput>
-        <FormHelperText color='#8c7dd7'>0 to 500</FormHelperText>
+        <FormHelperText color='gray.500'>0 to 500</FormHelperText>
       </FormControl>
       <FormControl id='prob' isRequired mt={3}>
         <FormLabel color='#2D3748'>Probability of an Edge Between Two Nodes</FormLabel>
@@ -93,10 +93,10 @@ export default function RandomForm() {
             border='1px' 
             borderColor='#2D3748'
             _hover={{
-              borderColor: '#8c7dd7'
+              borderColor: 'gray.400'
             }}
             _focus={{
-              borderColor: '#8c7dd7'
+              borderColor: 'gray.400'
             }}
           />
           <NumberInputStepper>
@@ -104,7 +104,7 @@ export default function RandomForm() {
             <NumberDecrementStepper color='#2D3748' />
           </NumberInputStepper>
         </NumberInput>
-        <FormHelperText color='#8c7dd7'>0 to 1</FormHelperText>
+        <FormHelperText color='gray.500'>0 to 1</FormHelperText>
       </FormControl>
       <FormControl id='layout' isRequired mt={3}>
         <FormLabel color='#2D3748'>Layout</FormLabel>
@@ -117,10 +117,10 @@ export default function RandomForm() {
           border='1px' 
           borderColor='#2D3748'
           _hover={{
-            borderColor: '#8c7dd7'
+            borderColor: 'gray.400'
           }}
           _focus={{
-            borderColor: '#8c7dd7'
+            borderColor: 'gray.400'
           }}
         >
           <option value="random" style={{backgroundColor: '#f8f8ff'}}>Random</option>

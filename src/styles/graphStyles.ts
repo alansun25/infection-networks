@@ -4,7 +4,7 @@ export const graphStyles = [
   {
     selector: 'node',
     style: {
-      'background-color': (node: cytoscape.NodeSingular) => node.data('status') === 'infected' ? '#d55757' : '#8c7dd7',
+      'background-color': (node: cytoscape.NodeSingular) => node.data('status') === 'infected' ? '#E53E3E' : '#b6b6b6',
       'height': 20,
       'width': 20
     }
