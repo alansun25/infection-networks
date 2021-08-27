@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useState } from "react"
 import {
   FormControl,
   FormLabel,
@@ -15,20 +15,17 @@ import {
 
 type Props = {
   settings: {
-    nodes: number;
-    prob: string;
-    knei: number;
-    layout: string;
+    nodes: number,
+    prob: string,
+    knei: number,
+    layout: string,
   }
   setSettings: React.Dispatch<React.SetStateAction<{
-    nodes: number;
-    prob: string;
-    knei: number;
-    layout: string;
+    nodes: number,
+    prob: string,
+    knei: number,
+    layout: string,
   }>>
-  // handleNodeChange: (valStr: string, valNum: number) => void,
-  // handleProbChange: (valStr: string, valNum: number) => void,
-  // handleLayoutChange: (valStr: string, valNum: number) => void,
 };
 
 export default function RandomForm({ settings, setSettings }: Props) {
@@ -70,9 +67,6 @@ export default function RandomForm({ settings, setSettings }: Props) {
       prob: p,
       layout: l
     });
-    // props.handleNodeChange('', nodes);
-    // props.handleProbChange(prob, 0);
-    // props.handleLayoutChange(layout, 0)
   };
 
   return (
@@ -160,6 +154,7 @@ export default function RandomForm({ settings, setSettings }: Props) {
       <Flex justify='end'>
         <Button
           mt={6}
+          mb={4}
           color="#f8f8ff"
           bgColor="gray.700"
           fontWeight="normal"
@@ -172,5 +167,5 @@ export default function RandomForm({ settings, setSettings }: Props) {
         </Button>
       </Flex>
     </form>
-  )
-}
+  );
+};

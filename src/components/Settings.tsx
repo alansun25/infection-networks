@@ -69,13 +69,10 @@ export default function Settings(props: Props) {
           ? <RandomForm 
               settings={props.settings}
               setSettings={props.setSettings}
-              // handleNodeChange={props.handleNodeChange}
-              // handleProbChange={props.handleProbChange}
-              // handleLayoutChange={props.handleLayoutChange}
             /> 
           : (props.algo === 'Small-world' 
               ? <SmallWorldForm/> 
-              : <PreferentialForm/>)};
+              : <PreferentialForm/>)}
       </Box>
     </Box> 
   );

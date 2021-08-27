@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   FormControl,
   FormLabel,
@@ -100,5 +100,5 @@ export default function SmallWorldForm() {
         </Select>
       </FormControl>
     </form>
-  )
-}
+  );
+};
