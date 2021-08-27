@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/infection-networks/static/css/main.36d943cf.chunk.css",
-    "main.js": "/infection-networks/static/js/main.bbc31f25.chunk.js",
-    "main.js.map": "/infection-networks/static/js/main.bbc31f25.chunk.js.map",
+    "main.css": "/infection-networks/static/css/main.d88044e0.chunk.css",
+    "main.js": "/infection-networks/static/js/main.37996266.chunk.js",
+    "main.js.map": "/infection-networks/static/js/main.37996266.chunk.js.map",
     "runtime-main.js": "/infection-networks/static/js/runtime-main.e0ae0b90.js",
     "runtime-main.js.map": "/infection-networks/static/js/runtime-main.e0ae0b90.js.map",
     "static/js/2.f4aa0aec.chunk.js": "/infection-networks/static/js/2.f4aa0aec.chunk.js",
     "static/js/2.f4aa0aec.chunk.js.map": "/infection-networks/static/js/2.f4aa0aec.chunk.js.map",
     "index.html": "/infection-networks/index.html",
-    "static/css/main.36d943cf.chunk.css.map": "/infection-networks/static/css/main.36d943cf.chunk.css.map",
+    "static/css/main.d88044e0.chunk.css.map": "/infection-networks/static/css/main.d88044e0.chunk.css.map",
     "static/js/2.f4aa0aec.chunk.js.LICENSE.txt": "/infection-networks/static/js/2.f4aa0aec.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.e0ae0b90.js",
     "static/js/2.f4aa0aec.chunk.js",
-    "static/css/main.36d943cf.chunk.css",
-    "static/js/main.bbc31f25.chunk.js"
+    "static/css/main.d88044e0.chunk.css",
+    "static/js/main.37996266.chunk.js"
   ]
 }
