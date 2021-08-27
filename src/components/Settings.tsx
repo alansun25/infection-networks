@@ -32,7 +32,7 @@ type Props = {
 };
 
 export default function Settings(props: Props) {
-  const algoOptions = ['Random', 'Small-world', 'Preferential Attachment'];
+  const algoOptions = ['Random', 'Small-world']; // Will later also include Pref Attachment
 
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: 'framework',
@@ -47,13 +47,13 @@ export default function Settings(props: Props) {
       p={4} 
       m={4} 
       border='1px' 
-      borderColor='#2D3748' 
+      borderColor='gray.700' 
       borderRadius='md' 
       shadow='xl'
       bg='#f8f8ff'
     >
-      <Heading as='h1' size='md' color='#2D3748'>Graph Settings</Heading>
-      <FormLabel color='#2D3748' mt={3}>Generation Algorithm</FormLabel>
+      <Heading as='h1' size='md' color='gray.700'>Graph Settings</Heading>
+      <FormLabel color='gray.700' mt={3}>Generation Algorithm</FormLabel>
       <HStack {...group}>
         {algoOptions.map(value => {
           const radio = getRadioProps({ value })

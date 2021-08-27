@@ -78,7 +78,7 @@ export default function RandomForm({ settings, setSettings }: Props) {
   return (
     <form>
       <FormControl id='nodes' isRequired mt={3}>
-        <FormLabel color='#2D3748'>Number of Nodes</FormLabel>
+        <FormLabel color='gray.700'>Number of Nodes</FormLabel>
         <NumberInput 
           value={params.nodes} 
           onChange={localHandleNodes}
@@ -87,9 +87,9 @@ export default function RandomForm({ settings, setSettings }: Props) {
           inputMode='numeric'
         >
           <NumberInputField
-            color='#2D3748' 
+            color='gray.700' 
             border='1px' 
-            borderColor='#2D3748'
+            borderColor='gray.700'
             _hover={{
               borderColor: 'gray.400'
             }}
@@ -98,14 +98,14 @@ export default function RandomForm({ settings, setSettings }: Props) {
             }}
           />
           <NumberInputStepper>
-            <NumberIncrementStepper color='#2D3748' />
-            <NumberDecrementStepper color='#2D3748' />
+            <NumberIncrementStepper color='gray.700' />
+            <NumberDecrementStepper color='gray.700' />
           </NumberInputStepper>
         </NumberInput>
         <FormHelperText color='gray.500'>0 to 500</FormHelperText>
       </FormControl>
       <FormControl id='prob' isRequired mt={3}>
-        <FormLabel color='#2D3748'>Probability of an Edge Between Two Nodes</FormLabel>
+        <FormLabel color='gray.700'>Probability of an Edge Between Two Nodes</FormLabel>
         <NumberInput
           value={params.prob}
           onChange={localHandleProb}
@@ -115,9 +115,9 @@ export default function RandomForm({ settings, setSettings }: Props) {
           inputMode='decimal'
         >
           <NumberInputField
-            color='#2D3748' 
+            color='gray.700' 
             border='1px' 
-            borderColor='#2D3748'
+            borderColor='gray.700'
             _hover={{
               borderColor: 'gray.400'
             }}
@@ -126,22 +126,22 @@ export default function RandomForm({ settings, setSettings }: Props) {
             }}
           />
           <NumberInputStepper>
-            <NumberIncrementStepper color='#2D3748' />
-            <NumberDecrementStepper color='#2D3748' />
+            <NumberIncrementStepper color='gray.700' />
+            <NumberDecrementStepper color='gray.700' />
           </NumberInputStepper>
         </NumberInput>
         <FormHelperText color='gray.500'>0 to 1</FormHelperText>
       </FormControl>
       <FormControl id='layout' isRequired mt={3}>
-        <FormLabel color='#2D3748'>Layout</FormLabel>
+        <FormLabel color='gray.700'>Layout</FormLabel>
         <Select
           name='layout'
           value={params.layout}
           onChange={localHandleLayout}
-          color='#2D3748'
+          color='gray.700'
           backgroundColor='#f8f8ff'
           border='1px' 
-          borderColor='#2D3748'
+          borderColor='gray.700'
           _hover={{
             borderColor: 'gray.400'
           }}
