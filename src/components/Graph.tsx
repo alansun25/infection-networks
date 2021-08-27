@@ -4,12 +4,23 @@ import { Box } from '@chakra-ui/react';
 import ErdosRenyi from '../functions/ErdosRenyi';
 import WattsStrogatz from '../functions/WattsStrogatz';
 
-export default function Graph() {
+type Props = {
+  algo: string,
+  settings: {
+    nodes: number,
+    prob: string,
+    knei: number,
+    layout: string
+  }
+};
+
+export default function Graph({ algo, settings}: Props) {
   const graphContainer = useRef<HTMLDivElement>(null);
-  const [algo, setAlgo] = useState<string>('Random');
 
   useEffect(() => {
-    WattsStrogatz(20, 3, 0.15, "breadthfirst", graphContainer);
+    algo === 'random' 
+      ? ErdosRenyi(settings.nodes, parseFloat(settings.prob), settings.layout, graphContainer) 
+      : WattsStrogatz(settings.nodes, settings.knei, parseFloat(settings.prob), settings.layout, graphContainer)
   }, []);
 
   return (

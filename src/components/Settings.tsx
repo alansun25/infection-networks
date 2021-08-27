@@ -1,16 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   Heading,
   Box,
-  FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-  Input,
-  RadioGroup,
-  VStack,
-  Radio,
-  Text,
   useRadioGroup,
   HStack
 } from "@chakra-ui/react";
@@ -19,32 +11,34 @@ import RandomForm from "./algo-forms/RandomForm";
 import SmallWorldForm from "./algo-forms/SmallWorldForm";
 import PreferentialForm from "./algo-forms/PreferentialForm";
 
-export default function Settings() {
+type Props = {
+  algo: string,
+  setAlgo: React.Dispatch<React.SetStateAction<string>>,
+  settings: {
+    nodes: number;
+    prob: string;
+    knei: number;
+    layout: string;
+  },
+  setSettings: React.Dispatch<React.SetStateAction<{
+    nodes: number;
+    prob: string;
+    knei: number;
+    layout: string;
+  }>>   
+  // handleNodeChange: (valStr: string, valNum: number) => void,
+  // handleProbChange: (valStr: string, valNum: number) => void,
+  // handleLayoutChange: (valStr: string, valNum: number) => void,
+};
+
+export default function Settings(props: Props) {
   const algoOptions = ['Random', 'Small-world', 'Preferential Attachment'];
-  const [algo, setAlgo] = useState<string>('Random');
-
-  // Random graph algorithm settings
-  const [rs, setRs] = useState({
-    n: 0,
-    p: '0',
-    l: 'random'
-  })
-
-  // Small world graph algorithm settings
-  const [sw, setSw] = useState({
-    n: 0,
-    p: '0',
-    k: 0,
-    l: 'random'
-  })
 
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: 'framework',
     defaultValue: 'Random',
-    onChange: setAlgo,
+    onChange: props.setAlgo,
   });
-
-  useEffect(() => console.log(algo));
 
   const group = getRootProps();
 
@@ -71,7 +65,17 @@ export default function Settings() {
         })}
       </HStack>
       <Box mb={-3}>
-        {algo === 'Random' ? <RandomForm/> : (algo === 'Small-world' ? <SmallWorldForm/> : <PreferentialForm/>)};
+        {props.algo === 'Random' 
+          ? <RandomForm 
+              settings={props.settings}
+              setSettings={props.setSettings}
+              // handleNodeChange={props.handleNodeChange}
+              // handleProbChange={props.handleProbChange}
+              // handleLayoutChange={props.handleLayoutChange}
+            /> 
+          : (props.algo === 'Small-world' 
+              ? <SmallWorldForm/> 
+              : <PreferentialForm/>)};
       </Box>
     </Box> 
   );

@@ -1,25 +1,44 @@
-import React, { ChangeEvent, ChangeEventHandler, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import {
   FormControl,
   FormLabel,
-  FormErrorMessage,
+  Flex,
   FormHelperText,
   NumberInput,
   NumberDecrementStepper,
   NumberIncrementStepper,
   NumberInputField,
   NumberInputStepper,
-  Select
+  Select,
+  Button
 } from "@chakra-ui/react"
 
-export default function RandomForm() {
+type Props = {
+  settings: {
+    nodes: number;
+    prob: string;
+    knei: number;
+    layout: string;
+  }
+  setSettings: React.Dispatch<React.SetStateAction<{
+    nodes: number;
+    prob: string;
+    knei: number;
+    layout: string;
+  }>>
+  // handleNodeChange: (valStr: string, valNum: number) => void,
+  // handleProbChange: (valStr: string, valNum: number) => void,
+  // handleLayoutChange: (valStr: string, valNum: number) => void,
+};
+
+export default function RandomForm({ settings, setSettings }: Props) {
   const [params, setParams] = useState({
     nodes: 0,
     prob: '0',
     layout: 'random'
   });
 
-  const handleNodeChange = (valStr: string, valNum: number) => {
+  const localHandleNodes = (valStr: string, valNum: number) => {
     if (isNaN(valNum)) {
       valNum = 0;
     }
@@ -28,34 +47,41 @@ export default function RandomForm() {
       ...params,
       nodes: valNum
     })
-  }
+  };
 
-  const handleProbChange = (valStr: string, valNum: number) => {
+  const localHandleProb = (valStr: string, valNum: number) => {
     setParams({
       ...params,
       prob: valStr
     })
-  }
+  };
 
-  const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const target = e.target;
-    const value = target.value;
-    const name = target.name;
+  const localHandleLayout = (e: ChangeEvent<HTMLSelectElement>) => {
     setParams({
       ...params,
-      [name]: value
+      [e.target.name]: e.target.value
     })
-  }
+  };
 
-  console.log(params);
+  const handleSubmit = (n: number, p: string, l: string) => {
+    setSettings({
+      ...settings,
+      nodes: n,
+      prob: p,
+      layout: l
+    });
+    // props.handleNodeChange('', nodes);
+    // props.handleProbChange(prob, 0);
+    // props.handleLayoutChange(layout, 0)
+  };
 
   return (
-    <form action="">
+    <form>
       <FormControl id='nodes' isRequired mt={3}>
         <FormLabel color='#2D3748'>Number of Nodes</FormLabel>
         <NumberInput 
           value={params.nodes} 
-          onChange={handleNodeChange}
+          onChange={localHandleNodes}
           min={0} 
           max={500}
           inputMode='numeric'
@@ -82,7 +108,7 @@ export default function RandomForm() {
         <FormLabel color='#2D3748'>Probability of an Edge Between Two Nodes</FormLabel>
         <NumberInput
           value={params.prob}
-          onChange={handleProbChange}
+          onChange={localHandleProb}
           step={0.01}
           min={0} 
           max={1}
@@ -111,7 +137,7 @@ export default function RandomForm() {
         <Select
           name='layout'
           value={params.layout}
-          onChange={handleSelectChange}
+          onChange={localHandleLayout}
           color='#2D3748'
           backgroundColor='#f8f8ff'
           border='1px' 
@@ -131,6 +157,18 @@ export default function RandomForm() {
           <option value="cose" style={{backgroundColor: '#f8f8ff'}}>Cose</option>
         </Select>
       </FormControl>
+      <Flex justify='end'>
+        <Button
+          mt={6}
+          bgColor="gray.700"
+          _hover={{ bg: 'gray.600' }}
+          _active={{ bg: 'gray.800' }}
+          type="button"
+          onClick={() => handleSubmit(params.nodes, params.prob, params.layout)}
+        >
+          Submit
+        </Button>
+      </Flex>
     </form>
   );
 }

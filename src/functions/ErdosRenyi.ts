@@ -11,17 +11,6 @@ import { graphStyles } from "../styles/graphStyles";
  */
 
 export default function ErdosRenyi(n: number, p: number, l: string, ref: RefObject<HTMLDivElement>) {
-  // This data validation will be changed to be handled before the params are passed
-  if (n < 0) {
-    alert('A network cannot have a negative number of nodes.');
-    return;
-  }
-
-  if (p < 0 || p > 1) {
-    alert('Probability value must be between 0 and 1 inclusive.');
-    return;
-  }
-
   let cy = cytoscape({
     container: ref.current,
     elements: [],

@@ -15,9 +15,6 @@ export default function WattsStrogatz(n: number, k: number, p: number, l: string
   // Create nodes
   for (let i = 1; i <= n; i++) {
     let status = 'normal'
-    if (i % 2 === 0) {
-      status = 'infected';
-    }
 
     cy.add({
       group: 'nodes',
