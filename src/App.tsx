@@ -54,7 +54,7 @@ function App() {
         />        
       </Box>
       <Box w='100%'>
-        <Graph 
+        <Graph
           algo={algo}
           settings={settings}
         />
