@@ -71,63 +71,13 @@ export default function About() {
               Here is the <Link isExternal href='https://github.com/alansun25/infection-networks' color='gray.600' textDecor='underline'>source code</Link> for this project.
               If you have any questions, ideas, or comments, feel free to contact me at <Link isExternal href='mailto:as50@williams.edu' color='gray.600' textDecor='underline'>as50@williams.edu</Link>.
             </Text>
-            {/* <Accordion allowToggle>
-              <AccordionItem color='gray.700'>
-                <h2>
-                  <AccordionButton _focus={{}}>
-                    <Box flex="1" textAlign="left">
-                      Random
-                    </Box>
-                    <AccordionIcon/>
-                  </AccordionButton>
-                </h2>
-                <AccordionPanel pb={4}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                  commodo consequat.
-                </AccordionPanel>
-              </AccordionItem>
-
-              <AccordionItem color='gray.700'>
-                <h2>
-                  <AccordionButton _focus={{}}>
-                    <Box flex="1" textAlign="left">
-                      Small-world
-                    </Box>
-                    <AccordionIcon/>
-                  </AccordionButton>
-                </h2>
-                <AccordionPanel pb={4}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                  commodo consequat.
-                </AccordionPanel>
-              </AccordionItem>
-
-              <AccordionItem color='gray.700'>
-                <h2>
-                  <AccordionButton _focus={{}}>
-                    <Box flex="1" textAlign="left">
-                      Preferential Attachment
-                    </Box>
-                    <AccordionIcon/>
-                  </AccordionButton>
-                </h2>
-                <AccordionPanel pb={4}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                  commodo consequat.
-                </AccordionPanel>
-              </AccordionItem>
-            </Accordion> */}
           </ModalBody>
           <ModalFooter>
             <Button 
               onClick={onClose} 
+              color="#f8f8ff"
               bgColor="gray.700"
+              fontWeight="normal"
               _hover={{ bg: 'gray.600' }}
               _active={{ bg: 'gray.800' }}
             >

@@ -100,5 +100,5 @@ export default function SmallWorldForm() {
         </Select>
       </FormControl>
     </form>
-  );
+  )
 }

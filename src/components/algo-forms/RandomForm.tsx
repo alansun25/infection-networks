@@ -160,7 +160,9 @@ export default function RandomForm({ settings, setSettings }: Props) {
       <Flex justify='end'>
         <Button
           mt={6}
+          color="#f8f8ff"
           bgColor="gray.700"
+          fontWeight="normal"
           _hover={{ bg: 'gray.600' }}
           _active={{ bg: 'gray.800' }}
           type="button"
@@ -170,5 +172,5 @@ export default function RandomForm({ settings, setSettings }: Props) {
         </Button>
       </Flex>
     </form>
-  );
+  )
 }
