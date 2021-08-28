@@ -3,6 +3,9 @@ import { RefObject } from "react";
 import { graphStyles } from "../styles/graphStyles";
 
 export default function WattsStrogatz(n: number, k: number, p: number, l: string, ref: RefObject<HTMLDivElement>) {
+  // TODO: Store edges in a Set for faster lookup
+  let edges = new Set()
+
   let cy = cytoscape({
     container: ref.current,
     elements: [],

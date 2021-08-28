@@ -204,7 +204,7 @@ export default function SmallWorldForm({ swSettings, setSwSettings }: Props) {
           type="button"
           onClick={() => handleSubmit(params.nodes, params.prob, params.knei, params.layout)}
         >
-          Submit
+          Generate
         </Button>
       </Flex>
     </form>

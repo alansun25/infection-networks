@@ -11,9 +11,13 @@ import { graphStyles } from "../styles/graphStyles";
  */
 
 export default function ErdosRenyi(n: number, p: number, l: string, ref: RefObject<HTMLDivElement>) {
+  // TODO: Store edges in a Set for faster lookup
+  let edges = new Set()
+
   // TODO: To handle the issue of the graph re-rendering whenever a tab is visited again, considering creating
   // the cy object in the Graph component, then pass it into here to populate and save it in state of the Graph
-  // component. May need to declare seperate cy objects in Graph for each different algorithm.
+  // component. May need to declare seperate cy objects in Graph for each different algorithm. There has to be
+  // a way to assign the container ref to the cy object after it is created, right?
   let cy = cytoscape({
     container: ref.current,
     elements: [],

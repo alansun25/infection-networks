@@ -19,31 +19,6 @@ function App() {
     knei: 0,
     layout: 'random'
   });
-
-  // const handleNodeChange = (valStr: string, valNum: number) => {
-  //   if (isNaN(valNum)) {
-  //     valNum = 0;
-  //   }
-
-  //   setSettings({
-  //     ...settings,
-  //     nodes: valNum
-  //   })
-  // };
-
-  // const handleProbChange = (valStr: string, valNum: number) => {
-  //   setSettings({
-  //     ...settings,
-  //     prob: valStr
-  //   })
-  // };
-
-  // const handleLayoutChange = (valStr: string, valNum: number) => {
-  //   setSettings({
-  //     ...settings,
-  //     layout: valStr
-  //   })
-  // };
   
   return (
     <Flex flexDirection='row'>

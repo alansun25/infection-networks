@@ -160,7 +160,7 @@ export default function RandomForm({ randSettings, setRandSettings }: Props) {
           type="button"
           onClick={() => handleSubmit(params.nodes, params.prob, params.layout)}
         >
-          Submit
+          Generate
         </Button>
       </Flex>
     </form>
