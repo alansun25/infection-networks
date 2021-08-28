@@ -1,13 +1,7 @@
 import React from "react";
 import { 
-  Heading, 
   Box, 
   Button, 
-  Accordion, 
-  AccordionButton, 
-  AccordionIcon, 
-  AccordionItem, 
-  AccordionPanel, 
   Link,
   useDisclosure,
   Modal,
@@ -54,7 +48,7 @@ export default function About() {
                 Erdős–Rényi
               </Link> (random)  and <Link isExternal href="https://en.wikipedia.org/wiki/Watts%E2%80%93Strogatz_model" color='gray.600' textDecor='underline'>
                 Watts-Strogatz
-              </Link> (small-world) models. My research inspired me to build this web app to help you visualize any random network (up to n = 500)
+              </Link> (small-world) models. My research inspired me to build this web app to help you visualize any random network (up to n = 200)
               that can be generated using either of these models (I'm also self-studying a third model and will be adding that one soon). 
             </Text>
             <Text color='gray.700' mt={2}>
