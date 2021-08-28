@@ -17,24 +17,24 @@ type Props = {
   randSettings: {
     nodes: number,
     prob: string,
-    layout: string,
+    layout: string
   },
   setRandSettings: React.Dispatch<React.SetStateAction<{
     nodes: number,
     prob: string,
-    layout: string,
+    layout: string
   }>>, 
   swSettings: {
     nodes: number,
     prob: string,
     knei: number,
-    layout: string,
+    layout: string
   },
   setSwSettings: React.Dispatch<React.SetStateAction<{
-    nodes: number;
-    prob: string;
-    knei: number;
-    layout: string;
+    nodes: number,
+    prob: string,
+    knei: number,
+    layout: string
   }>>   
   // handleNodeChange: (valStr: string, valNum: number) => void,
   // handleProbChange: (valStr: string, valNum: number) => void,

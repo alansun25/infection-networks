@@ -3,9 +3,6 @@ import { RefObject } from "react";
 import { graphStyles } from "../styles/graphStyles";
 
 export default function WattsStrogatz(n: number, k: number, p: number, l: string, ref: RefObject<HTMLDivElement>) {
-  // TODO: Store edges in a Set for faster lookup
-  let edges = new Set()
-
   let cy = cytoscape({
     container: ref.current,
     elements: [],
@@ -28,14 +25,10 @@ export default function WattsStrogatz(n: number, k: number, p: number, l: string
   if ((n % 2 === 0 && k >= n / 2) || (n % 2 === 1 && k >= n / 2 - 1)) {
     for (let i = 1; i < n; i++) {
       for (let j = i + 1; j <= n; j++) {
-        const ni = cy.nodes().$id(`${i}`);
-        const nj = cy.nodes().$id(`${j}`);
-        if (i !== j && !ni.neighborhood().contains(nj)) {
-          cy.add({
-            group: 'edges', 
-            data: { id: `${i}-${j}`, source: `${i}`, target: `${j}` }
-          })
-        }
+        cy.add({
+          group: 'edges', 
+          data: { id: `${i}-${j}`, source: `${i}`, target: `${j}` }
+        })
       }
     }
   } else {

@@ -11,9 +11,6 @@ import { graphStyles } from "../styles/graphStyles";
  */
 
 export default function ErdosRenyi(n: number, p: number, l: string, ref: RefObject<HTMLDivElement>) {
-  // TODO: Store edges in a Set for faster lookup
-  let edges = new Set()
-
   // TODO: To handle the issue of the graph re-rendering whenever a tab is visited again, considering creating
   // the cy object in the Graph component, then pass it into here to populate and save it in state of the Graph
   // component. May need to declare seperate cy objects in Graph for each different algorithm. There has to be
@@ -34,17 +31,24 @@ export default function ErdosRenyi(n: number, p: number, l: string, ref: RefObje
 
   // Create edges
   for (let i = 1; i <= n; i++) {
-    const neighbors = cy.$(`#${i}`).neighborhood();
     for (let j = i; j <= n; j++) {
-      const rand = Math.random();
       
-      // Prevent self-loops and multiple-edges.
-      // Only create the edge if the randomly generated float is less than p.
-      if (i !== j && rand < p && !neighbors.contains(cy.$(`#${j}`))) {
-        cy.add({
-          group: 'edges', 
-          data: { id: `${i}-${j}`, source: `${i}`, target: `${j}` }
-        })
+      /* 
+       * This condition prevents self-loops and multiple-edges by only considering the addition
+       * of edges that have not already been considered. This is done because we are creating
+       * an undirected graph, so we only need to consider edge i-j once; we don't need to consider
+       * both i->j and j->i 
+       */
+      if (i < j) {
+        const rand = Math.random();
+        
+        // Only create the edge if the randomly generated float is less than p.
+        if (rand < p) {
+          cy.add({
+            group: 'edges', 
+            data: { id: `${i}-${j}`, source: `${i}`, target: `${j}` }
+          })
+        }
       }
     }
   }

@@ -22,6 +22,7 @@ type Props = {
 export default function Graph({ algo, randSettings, swSettings }: Props) {
   const graphContainer = useRef<HTMLDivElement>(null);
 
+  // Getting an error 'TypeError: ctr is null' when trying to use SW algo without touching Random algo first...
   useEffect(() => {
     if (randSettings.nodes !== 0 && algo === 'Random') {
       ErdosRenyi(randSettings.nodes, parseFloat(randSettings.prob), randSettings.layout, graphContainer) 
