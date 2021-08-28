@@ -68,7 +68,7 @@ export default function SmallWorldForm({ swSettings, setSwSettings }: Props) {
   const localHandleLayout = (e: ChangeEvent<HTMLSelectElement>) => {
     setParams({
       ...params,
-      [e.target.name]: e.target.value
+      layout: e.target.value
     })
   };
 
@@ -171,7 +171,6 @@ export default function SmallWorldForm({ swSettings, setSwSettings }: Props) {
       <FormControl id='layout' isRequired mt={3}>
         <FormLabel color='gray.700'>Layout</FormLabel>
         <Select
-          name='layout'
           value={params.layout}
           onChange={localHandleLayout}
           color='gray.700'
