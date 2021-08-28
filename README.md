@@ -14,4 +14,5 @@ Currently, you can generate the random graphs. I'm still working on adding the a
 - Cytoscape.js (Graph drawing)
 - React.js (Front-end library)
 - Chakra UI (Components and Styling)
+- Firebase (Authentication and Storage)
 
