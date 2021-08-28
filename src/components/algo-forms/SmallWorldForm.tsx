@@ -90,7 +90,7 @@ export default function SmallWorldForm({ swSettings, setSwSettings }: Props) {
           value={params.nodes} 
           onChange={localHandleNodes}
           min={0} 
-          max={500}
+          max={200}
           inputMode='numeric'
         >
           <NumberInputField
@@ -109,7 +109,7 @@ export default function SmallWorldForm({ swSettings, setSwSettings }: Props) {
             <NumberDecrementStepper color='gray.700' />
           </NumberInputStepper>
         </NumberInput>
-        <FormHelperText color='gray.500'>0 to 500</FormHelperText>
+        <FormHelperText color='gray.500'>0 to 200</FormHelperText>
       </FormControl>
       <FormControl id='nei' isRequired mt={3}>
         <FormLabel color='gray.700'>Neighborhood</FormLabel>

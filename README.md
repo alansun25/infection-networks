@@ -2,14 +2,12 @@
 
 **A work in progress.**
 
-## Description
-This focal point of this project is to visualize how disease spreads through populations. It will allows users to create their own
-networks and diseases, adjusting parameters such as size and immunity percentage for the population, and infection probability and duration for the disease, etc. There will be different network generation algorithms to choose from, namely Erdős–Rényi (random), Watts–Strogatz (small-world), and Barabási–Albert (preferential attachment).
+## Description and Inspiration
+In the summer of 2021, I worked with a professor on some research in the field of network science and studied some pretty interesting models for generating random graphs – namely, the Erdős–Rényi (random) and Watts-Strogatz (small-world) models. My research inspired me to build this web app to help you visualize any random network up to n = 200 (hoping to increase this in the future with more efficient implementations of the algorithms) that can be generated using either of these models (I'm also self-studying a third model and will be adding that one soon).
 
-I am currently focusing on allowing users to generate mock networks. Further down the line, I would like to provide an option to load up a real-life social networks and view how disease may spread through them, as well as allow users to create accounts and save certain networks, diseases, and their parameters.
+Random graphs are extremely useful for modeling a wide array of real-life networks. Most of my summer research focused on one category of real-life networks: social networks. Social networks are extremely relevant in daily life and are especially of interest right now due to the COVID-19 pandemic and contact tracing. This is essentially the premise of this web app: a tool to enable you to visualize how a hypothetical disease will spread through a randomly generated social network.
 
-## Inspiration
-I am currently performing network analysis research at Williams College for the summer of 2021. I've studied and implemented the aforementioned random and small-world network-generating algorithms using R, and decided that it would be interesting to create a web application that can visualize these networks dynamically. Adding the disease component into it seemed fun and relevant (COVID-19 type beat). This will also be a good opportunity to learn about preferential attachment, which is a graphing algorithm I won't be studying for my research, and some new JavaScript graphing libraries.
+Currently, you can generate the random graphs. I'm still working on adding the ability to create diseases. Later on, you will also be able create an account and save populations/diseases that you create.
 
 ## Tech Stack
 - TypeScript (Language)

@@ -23,8 +23,8 @@ export default function WattsStrogatz(n: number, k: number, p: number, l: string
   // Can't rewire a complete graph because every node is linked to every other 
   // node already, so we just create a complete graph.
   if ((n % 2 === 0 && k >= n / 2) || (n % 2 === 1 && k >= n / 2 - 1)) {
-    for (let i = 1; i <= n; i++) {
-      for (let j = i; j <= n; j++) {
+    for (let i = 1; i < n; i++) {
+      for (let j = i + 1; j <= n; j++) {
         const ni = cy.nodes().$id(`${i}`);
         const nj = cy.nodes().$id(`${j}`);
         if (i !== j && !ni.neighborhood().contains(nj)) {
