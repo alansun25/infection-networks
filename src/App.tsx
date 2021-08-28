@@ -6,7 +6,14 @@ import About from './components/About';
 
 function App() {
   const [algo, setAlgo] = useState<string>('Random');
-  const [settings, setSettings] = useState({
+
+  const [randSettings, setRandSettings] = useState({
+    nodes: 0,
+    prob: '0',
+    layout: 'random'
+  });
+
+  const [swSettings, setSwSettings] = useState({
     nodes: 0,
     prob: '0',
     knei: 0,
@@ -44,8 +51,10 @@ function App() {
         <Settings
           algo={algo}
           setAlgo={setAlgo}
-          settings={settings}
-          setSettings={setSettings}
+          randSettings={randSettings}
+          setRandSettings={setRandSettings}
+          swSettings={swSettings}
+          setSwSettings={setSwSettings}
           // handleNodeChange={handleNodeChange}
           // handleProbChange={handleProbChange}
           // handleLayoutChange={handleLayoutChange}
@@ -54,7 +63,8 @@ function App() {
       <Box w='100%'>
         <Graph
           algo={algo}
-          settings={settings}
+          randSettings={randSettings}
+          swSettings={swSettings}
         />
       </Box>
       <Box pos='fixed' right={0}>

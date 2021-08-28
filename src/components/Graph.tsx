@@ -6,7 +6,12 @@ import WattsStrogatz from '../functions/WattsStrogatz';
 
 type Props = {
   algo: string,
-  settings: {
+  randSettings: {
+    nodes: number,
+    prob: string,
+    layout: string
+  },
+  swSettings: {
     nodes: number,
     prob: string,
     knei: number,
@@ -14,15 +19,15 @@ type Props = {
   }
 };
 
-export default function Graph({ algo, settings }: Props) {
+export default function Graph({ algo, randSettings, swSettings }: Props) {
   const graphContainer = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     console.log('Graph has rendered.')
     algo === 'Random' 
-      ? ErdosRenyi(settings.nodes, parseFloat(settings.prob), settings.layout, graphContainer) 
-      : WattsStrogatz(settings.nodes, settings.knei, parseFloat(settings.prob), settings.layout, graphContainer)
-  }, [algo, settings.nodes, settings.knei, settings.prob, settings.layout]);
+      ? ErdosRenyi(randSettings.nodes, parseFloat(randSettings.prob), randSettings.layout, graphContainer) 
+      : WattsStrogatz(swSettings.nodes, swSettings.knei, parseFloat(swSettings.prob), swSettings.layout, graphContainer)
+  }, [algo, randSettings.nodes, randSettings.prob, randSettings.layout, swSettings.nodes, swSettings.knei, swSettings.prob, swSettings.layout]);
 
   return (
     <Box ref={graphContainer} zIndex='0' h={900}></Box>

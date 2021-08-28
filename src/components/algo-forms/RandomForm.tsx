@@ -14,21 +14,19 @@ import {
 } from "@chakra-ui/react"
 
 type Props = {
-  settings: {
+  randSettings: {
     nodes: number,
     prob: string,
-    knei: number,
     layout: string,
   }
-  setSettings: React.Dispatch<React.SetStateAction<{
+  setRandSettings: React.Dispatch<React.SetStateAction<{
     nodes: number,
     prob: string,
-    knei: number,
     layout: string,
   }>>
 };
 
-export default function RandomForm({ settings, setSettings }: Props) {
+export default function RandomForm({ randSettings, setRandSettings }: Props) {
   const [params, setParams] = useState({
     nodes: 0,
     prob: '0',
@@ -61,8 +59,8 @@ export default function RandomForm({ settings, setSettings }: Props) {
   };
 
   const handleSubmit = (n: number, p: string, l: string) => {
-    setSettings({
-      ...settings,
+    setRandSettings({
+      ...randSettings,
       nodes: n,
       prob: p,
       layout: l

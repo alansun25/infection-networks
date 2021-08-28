@@ -14,13 +14,23 @@ import PreferentialForm from "./algo-forms/PreferentialForm";
 type Props = {
   algo: string,
   setAlgo: React.Dispatch<React.SetStateAction<string>>,
-  settings: {
-    nodes: number;
-    prob: string;
-    knei: number;
-    layout: string;
+  randSettings: {
+    nodes: number,
+    prob: string,
+    layout: string,
   },
-  setSettings: React.Dispatch<React.SetStateAction<{
+  setRandSettings: React.Dispatch<React.SetStateAction<{
+    nodes: number,
+    prob: string,
+    layout: string,
+  }>>, 
+  swSettings: {
+    nodes: number,
+    prob: string,
+    knei: number,
+    layout: string,
+  },
+  setSwSettings: React.Dispatch<React.SetStateAction<{
     nodes: number;
     prob: string;
     knei: number;
@@ -67,11 +77,14 @@ export default function Settings(props: Props) {
       <Box mb={-3}>
         {props.algo === 'Random' 
           ? <RandomForm 
-              settings={props.settings}
-              setSettings={props.setSettings}
+              randSettings={props.randSettings}
+              setRandSettings={props.setRandSettings}
             /> 
           : (props.algo === 'Small-world' 
-              ? <SmallWorldForm/> 
+              ? <SmallWorldForm
+                  swSettings={props.swSettings}
+                  setSwSettings={props.setSwSettings}
+                /> 
               : <PreferentialForm/>)}
       </Box>
     </Box> 
